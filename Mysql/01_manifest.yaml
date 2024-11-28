@@ -11,16 +11,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
+      app: mysql
       project: expense
       tier: db
-      app: mysql
   template:
     metadata:
        name: nginx-pod
        labels:
+        app: mysql
         project: expense
         tier: db
-        app: mysql
     spec:
       containers:
       - name: mysql
@@ -33,9 +33,9 @@ metadata:
   namespace: expense
 spec:
   selector: 
-   project: expense
-        tier: db
-        app: mysql 
+    app: mysql
+    project: expense
+    tier: db
   ports:
     - name: service-port
       protocol: TCP
