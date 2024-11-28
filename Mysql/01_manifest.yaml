@@ -4,9 +4,9 @@ metadata:
   name: mysql
   namespace: expense
   labels:
-      project: expense
-      tier: db
-      app: mysql
+    app: mysql
+    project: expense
+    tier: db
 spec:
   replicas: 1
   selector:
