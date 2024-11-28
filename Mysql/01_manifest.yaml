@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: expense-1
+  labels:
+    project: expense
+    tier: db
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: expense
+      tier: db
+      app: mysql
+  template:
+    metadata:
+       name: nginx-pod
+       labels:
+        project: expense
+        tier: db
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: sankarjuvva/mysql:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  selector: 
+   project: expense
+        tier: db
+        app: mysql 
+  ports:
+    - name: service-port
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
