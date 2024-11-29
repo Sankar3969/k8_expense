@@ -16,8 +16,8 @@ spec:
       tier: web
   template:
     metadata:
-       name: nginxfe-pod
-       labels:
+      name: nginxfe-pod
+      labels:
         app: frontend
         project: expense
         tier: web
@@ -32,7 +32,7 @@ metadata:
   name: frontend
   namespace: expense
 spec:
-type: LoadBalancer
+  type: LoadBalancer
   selector: 
     app: frontend
     project: expense
