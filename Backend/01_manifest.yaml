@@ -38,6 +38,14 @@ spec:
       containers:
       - name: backend
         image: sankarjuvva/backend:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+   #limits should increase
+          limits:
+            cpu: 110m
+            memory: 130Mi
         envFrom:
         - configMapRef:
             name: bcconfmap
