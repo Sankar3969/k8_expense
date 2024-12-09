@@ -25,14 +25,6 @@ spec:
       containers:
       - name: mysql
         image: sankarjuvva/mysql:latest
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-   #limits should increase
-          limits:
-            cpu: 110m
-            memory: 130Mi
 ---
 apiVersion: v1
 kind: Service
